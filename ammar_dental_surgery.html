@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammar Dental Surgery (Centre of Smiles) | Hafizabad</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Outfit for modern healthcare branding -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for medical & dental icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dental: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        cyanBrand: {
+                            500: '#06b6d4',
+                            600: '#0891b2'
+                        },
+                        goldBrand: {
+                            400: '#facc15',
+                            500: '#eab308'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0284c7 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-dental-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-tooth text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900 block font-heading">AMMAR DENTAL</span>
+                    <span class="text-xs font-semibold tracking-wider text-cyan-600 uppercase">Centre of Smiles • Hafizabad</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-600">
+                <a href="#home" class="hover:text-cyan-600 transition-colors">Home</a>
+                <a href="#about" class="hover:text-cyan-600 transition-colors">About Us</a>
+                <a href="#services" class="hover:text-cyan-600 transition-colors">Services</a>
+                <a href="#sterilization" class="hover:text-cyan-600 transition-colors">Sterilization</a>
+                <a href="#testimonials" class="hover:text-cyan-600 transition-colors">Reviews</a>
+                <a href="#contact" class="hover:text-cyan-600 transition-colors">Contact</a>
+            </nav>
+
+            <!-- CTA Appointment Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="openBookingModal()" class="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg bg-gradient-to-r from-cyan-500 to-dental-600 hover:from-cyan-600 hover:to-dental-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-cyan-500/25">
+                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Book Appointment
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-700 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#home" class="block py-2 font-medium text-slate-700 hover:text-cyan-600" onclick="toggleMobileMenu()">Home</a>
+            <a href="#about" class="block py-2 font-medium text-slate-700 hover:text-cyan-600" onclick="toggleMobileMenu()">About Us</a>
+            <a href="#services" class="block py-2 font-medium text-slate-700 hover:text-cyan-600" onclick="toggleMobileMenu()">Services</a>
+            <a href="#sterilization" class="block py-2 font-medium text-slate-700 hover:text-cyan-600" onclick="toggleMobileMenu()">Sterilization</a>
+            <a href="#testimonials" class="block py-2 font-medium text-slate-700 hover:text-cyan-600" onclick="toggleMobileMenu()">Reviews</a>
+            <a href="#contact" class="block py-2 font-medium text-slate-700 hover:text-cyan-600" onclick="toggleMobileMenu()">Contact</a>
+            <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full text-center py-3 bg-cyan-500 text-white rounded-xl font-bold shadow-md">
+                <i class="fa-brands fa-whatsapp mr-2"></i> Book Appointment
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-32 hero-gradient text-white overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-cyan-400 rounded-full filter blur-3xl opacity-20 pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-cyan-200 text-sm font-semibold">
+                        <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>Welcome to Hafizabad's Premier Dental Clinic</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+                        AMMAR DENTAL SURGERY <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-200 to-gold-400">CENTRE OF SMILES</span> 🦷
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-cyan-100 max-w-2xl mx-auto lg:mx-0 font-light">
+                        "Smile till you still have teeth 😁"
+                    </p>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0">
+                        Providing all kinds of advanced dental treatments & aesthetic procedures under strict sterilization protocols with utmost care and compassion.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl shadow-xl hover:bg-cyan-50 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center space-x-3">
+                            <span class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-lg">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </span>
+                            <span>Book Appointment Now</span>
+                        </button>
+                        <a href="#services" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold rounded-2xl border border-white/20 transition-all duration-300 text-center">
+                            Explore Treatments
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/10 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold font-heading text-cyan-200">100%</div>
+                            <div class="text-xs text-slate-300">Sterilization Safety</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold font-heading text-cyan-200">Advanced</div>
+                            <div class="text-xs text-slate-300">Dental Technology</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold font-heading text-cyan-200">Expert</div>
+                            <div class="text-xs text-slate-300">Dental Surgeons</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Card / Visual -->
+                <div class="lg:col-span-5 relative" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Glowing backdrop -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400 to-dental-500 rounded-3xl transform rotate-3 scale-105 opacity-30 filter blur-xl"></div>
+                        
+                        <!-- Main Card -->
+                        <div class="relative bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl text-slate-800 border border-white/50">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-notes-medical"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-900">Quick Appointment</h3>
+                                        <p class="text-xs text-slate-500">Direct WhatsApp Scheduling</p>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full flex items-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span> Open Today
+                                </span>
+                            </div>
+
+                            <form id="hero-quick-form" onsubmit="handleQuickBooking(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Your Full Name</label>
+                                    <input type="text" id="quick-name" required placeholder="e.g. Ali Ahmed" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Phone / WhatsApp Number</label>
+                                    <input type="tel" id="quick-phone" required placeholder="e.g. 03001234567" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Select Treatment</label>
+                                    <select id="quick-service" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                                        <option value="General Consultation">General Consultation</option>
+                                        <option value="Teeth Scaling & Polishing">Teeth Scaling & Polishing</option>
+                                        <option value="Teeth Whitening">Teeth Whitening</option>
+                                        <option value="Dental Implants">Dental Implants</option>
+                                        <option value="Crowns & Bridges">Crowns & Bridges</option>
+                                        <option value="Root Canal Treatment">Root Canal Treatment</option>
+                                        <option value="Orthodontic Braces & Aligners">Orthodontic Braces & Aligners</option>
+                                        <option value="Aesthetic Procedure">Aesthetic Procedure</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-dental-600 hover:from-cyan-600 hover:to-dental-700 text-white font-bold rounded-xl shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center space-x-2">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    <span>Send to Clinic WhatsApp</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Image Collage / Badge -->
+                <div class="lg:col-span-6 relative" data-aos="fade-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="bg-cyan-50 p-6 rounded-3xl border border-cyan-100 shadow-sm text-center">
+                                <div class="w-14 h-14 bg-cyan-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-cyan-500/30">
+                                    <i class="fa-solid fa-award text-2xl"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-900 text-lg">Expert Care</h4>
+                                <p class="text-xs text-slate-500 mt-1">Professional dental surgeons committed to excellence.</p>
+                            </div>
+                            <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-lg text-center relative overflow-hidden">
+                                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-cyan-500/20 rounded-full filter blur-xl"></div>
+                                <div class="text-3xl font-extrabold font-heading text-cyan-400 mb-1">100%</div>
+                                <p class="text-xs text-slate-300">Sterilization Protocols</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <div class="bg-amber-50 p-6 rounded-3xl border border-amber-100 shadow-sm text-center">
+                                <div class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-amber-500/30">
+                                    <i class="fa-solid fa-face-smile text-2xl"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-900 text-lg">Centre of Smiles</h4>
+                                <p class="text-xs text-slate-500 mt-1">Transforming lives one confident smile at a time.</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-cyan-500 to-dental-600 text-white p-6 rounded-3xl shadow-lg text-center">
+                                <div class="text-2xl font-extrabold font-heading mb-1">Hafizabad</div>
+                                <p class="text-xs text-cyan-100">Trusted Local Dental Surgery</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Text Content -->
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-left">
+                    <div class="inline-flex items-center space-x-2 bg-cyan-50 px-3.5 py-1.5 rounded-full text-cyan-600 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-hospital-user mr-1"></i> About Ammar Dental Surgery
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight">
+                        Dedicated to Giving You a Healthier, Brighter Smile in Hafizabad
+                    </h2>
+
+                    <p class="text-slate-600 leading-relaxed">
+                        Welcome to <strong class="text-slate-900">Ammar Dental Surgery (Centre of Smiles)</strong>, your trusted destination for comprehensive dental care and aesthetic transformations in Hafizabad, Pakistan. We pride ourselves on delivering top-notch dental treatments in a comfortable, friendly, and pain-free environment.
+                    </p>
+
+                    <p class="text-slate-600 leading-relaxed">
+                        Whether you need routine scaling & polishing, advanced root canal treatments, dazzling teeth whitening, dental implants, or smile design makeovers, our experienced dental surgeons utilize modern techniques and equipment to ensure optimal outcomes.
+                    </p>
+
+                    <!-- Key highlights list -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">Strict Sterilization Protocols</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">Advanced Equipment & Tech</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">Painless Root Canal Treatments</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">Affordable & Transparent Pricing</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button onclick="openBookingModal()" class="inline-flex items-center space-x-2 text-cyan-600 font-bold hover:text-cyan-700 transition-colors">
+                            <span>Schedule a Consultation with Our Dentist</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-cyan-600 text-xs font-bold uppercase tracking-widest bg-cyan-50 px-3.5 py-1.5 rounded-full border border-cyan-100">
+                    Comprehensive Dental Care
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mt-4 mb-4">
+                    Our Specialized Treatments
+                </h2>
+                <p class="text-slate-600 text-base">
+                    From routine dental cleaning to advanced restorative and aesthetic dental procedures, we provide full-spectrum care under strict sterilization guidelines.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Teeth Scaling & Polishing</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Remove stubborn plaque, tartar, and surface stains to restore your natural gum health and bright smile.
+                    </p>
+                    <button onclick="selectServiceAndBook('Teeth Scaling & Polishing')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Teeth Whitening</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Advanced professional whitening procedures to safely lighten your teeth by shades in just one visit.
+                    </p>
+                    <button onclick="selectServiceAndBook('Teeth Whitening')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-tooth"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Dental Implants</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Permanent, natural-looking tooth replacement solutions that restore normal biting function and appearance.
+                    </p>
+                    <button onclick="selectServiceAndBook('Dental Implants')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Crowns & Bridges</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        High-grade durable crowns and dental bridges to protect weakened teeth and fill missing gaps seamlessly.
+                    </p>
+                    <button onclick="selectServiceAndBook('Crowns & Bridges')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-teeth"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Dentures (CD / RPD)</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Custom-crafted Complete Dentures (CD) and Removable Partial Dentures (RPD) for comfort and aesthetics.
+                    </p>
+                    <button onclick="selectServiceAndBook('Dentures (CD/RPD)')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Root Canal Treatments</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Painless, precise endodontic therapy to save severely decayed or infected teeth from extraction.
+                    </p>
+                    <button onclick="selectServiceAndBook('Root Canal Treatments')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="700">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-face-smile-beam"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Orthodontics (Braces & Aligners)</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Straighten misaligned teeth and correct bite issues using traditional braces or invisible clear aligners.
+                    </p>
+                    <button onclick="selectServiceAndBook('Orthodontic Treatments (Braces & Aligners)')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/60 group" data-aos="fade-up" data-aos-delay="800">
+                    <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 font-heading">Aesthetic Procedures</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Smile makeovers, teeth reshaping, gum contouring, and aesthetic procedures to maximize your confidence.
+                    </p>
+                    <button onclick="selectServiceAndBook('Aesthetic Procedures')" class="text-cyan-600 font-bold text-sm inline-flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                        <span>Book Treatment</span> <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sterilization Protocol Banner -->
+    <section id="sterilization" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+                    <div class="inline-flex items-center space-x-2 bg-cyan-500/20 border border-cyan-500/30 px-3.5 py-1.5 rounded-full text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-virus mr-1"></i> Patient Safety First
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading leading-tight">
+                        Strict Sterilization Protocols & Hospital-Grade Safety
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        At Ammar Dental Surgery (Centre of Smiles), your safety and hygiene are our highest priorities. We strictly adhere to international hospital-grade infection control standards. Every instrument undergoes rigorous cleaning, ultrasonic washing, autoclaving, and sterile packaging.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+                            <div class="text-cyan-400 font-bold text-lg mb-1"><i class="fa-solid fa-box-archive mr-2"></i>Autoclaved</div>
+                            <p class="text-xs text-slate-400">100% sterile instruments for every patient.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+                            <div class="text-cyan-400 font-bold text-lg mb-1"><i class="fa-solid fa-spray-can-sparkles mr-2"></i>Disinfected</div>
+                            <p class="text-xs text-slate-400">Clinical surfaces sanitized after every visit.</p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+                            <div class="text-cyan-400 font-bold text-lg mb-1"><i class="fa-solid fa-hands-bubbles mr-2"></i>Disposable</div>
+                            <p class="text-xs text-slate-400">Single-use items used wherever applicable.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 text-center" data-aos="fade-left">
+                    <div class="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 p-8 rounded-3xl border border-cyan-500/30 backdrop-blur-md">
+                        <div class="w-20 h-20 bg-gradient-to-tr from-cyan-500 to-dental-600 text-white rounded-3xl flex items-center justify-center text-4xl mx-auto mb-6 shadow-xl shadow-cyan-500/30">
+                            <i class="fa-solid fa-shield-heart"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading mb-3">"Smile till you still have teeth 😁"</h3>
+                        <p class="text-slate-300 text-sm mb-6">
+                            Experience stress-free dental care backed by state-of-the-art sterilization.
+                        </p>
+                        <button onclick="openBookingModal()" class="w-full py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-xl shadow-lg transition-all">
+                            Book Safe Appointment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-cyan-600 text-xs font-bold uppercase tracking-widest bg-cyan-50 px-3.5 py-1.5 rounded-full border border-cyan-100">
+                    Patient Testimonials
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mt-4 mb-3">
+                    What Our Patients Say
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Read genuine feedback from patients who trusted us with their smiles in Hafizabad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 relative shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-amber-400 space-x-1 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">
+                        "Best dental clinic in Hafizabad! I got my root canal done here and it was completely painless. The clinic is extremely clean and follows strict sterilization protocols."
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-cyan-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            U
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Usman Tariq</h4>
+                            <span class="text-xs text-slate-500">Hafizabad Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 relative shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-amber-400 space-x-1 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">
+                        "Wonderful experience with teeth whitening and scaling! The doctor was very professional and explained everything clearly. Truly lives up to being the Centre of Smiles!"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-dental-700 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Ayesha Bibi</h4>
+                            <span class="text-xs text-slate-500">Patient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200/80 relative shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex text-amber-400 space-x-1 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm mb-6 leading-relaxed">
+                        "Very polite staff and top quality dental implants service. Booking an appointment through their online WhatsApp system was super convenient. Highly recommended!"
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-cyan-700 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Muhammad Bilal</h4>
+                            <span class="text-xs text-slate-500">Local Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-cyan-600 text-xs font-bold uppercase tracking-widest bg-cyan-50 px-3.5 py-1.5 rounded-full border border-cyan-100">
+                    Got Questions?
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mt-4 mb-3">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-slate-600">Find quick answers about our dental treatments and booking procedure.</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up">
+                
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span>How can I book an appointment at Ammar Dental Surgery?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-cyan-600 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-1" class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
+                        You can easily book an appointment by clicking any "Book Appointment" button on our website, filling out your details, and sending them directly via WhatsApp with one click!
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span>Where is Ammar Dental Surgery located in Hafizabad?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-cyan-600 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-2" class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
+                        We are conveniently located in Hafizabad, Pakistan. You can contact us directly via phone or WhatsApp for exact location directions and landmark assistance.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span>Are root canal treatments painful?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-cyan-600 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-3" class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
+                        Not at all! With modern local anesthesia and advanced endodontic techniques used at our clinic, root canal treatments are virtually painless and save your natural teeth.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center focus:outline-none">
+                        <span>What sterilization standards do you follow?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-cyan-600 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-4" class="hidden px-6 pb-4 text-slate-600 text-sm leading-relaxed">
+                        We maintain strict hospital-grade sterilization protocols, utilizing high-pressure medical autoclaves, ultrasonic instrument cleaners, and single-use disposables to guarantee 100% safety.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-slate-900 text-white pt-20 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-tooth text-xl"></i>
+                        </div>
+                        <span class="text-lg font-extrabold font-heading">AMMAR DENTAL</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Centre of Smiles • Providing all kinds of dental treatments under strict sterilization protocols in Hafizabad, Pakistan.
+                    </p>
+                    <div class="text-cyan-400 italic text-sm font-semibold">
+                        "Smile till you still have teeth 😁"
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold font-heading mb-4 text-base">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-cyan-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-cyan-400 transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Our Services</a></li>
+                        <li><a href="#sterilization" class="hover:text-cyan-400 transition-colors">Sterilization Safety</a></li>
+                        <li><a href="#testimonials" class="hover:text-cyan-400 transition-colors">Patient Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h4 class="text-white font-bold font-heading mb-4 text-base">Treatments</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Teeth Scaling & Polishing</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Teeth Whitening</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Dental Implants</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Root Canal Treatments</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Braces & Aligners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold font-heading mb-4 text-base">Contact & Location</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-cyan-400 mt-1"></i>
+                            <span>Main Clinic, Hafizabad, Punjab, Pakistan</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                            <span>+92 300 1234567</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-clock text-cyan-400"></i>
+                            <span>Mon - Sat: 10:00 AM - 9:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <button onclick="openBookingModal()" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-dental-600 hover:from-cyan-600 hover:to-dental-700 text-white font-bold rounded-xl shadow-lg transition-all text-sm flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Book via WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Ammar Dental Surgery (Centre of Smiles). All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Hafizabad, Pakistan 🦷</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Appointment Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative border border-slate-100 transform transition-all scale-95 opacity-0" id="modal-container">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 w-10 h-10 bg-slate-100 text-slate-500 rounded-full flex items-center justify-center hover:bg-slate-200 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center text-xl font-bold">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-extrabold text-slate-900 font-heading">Book Appointment</h3>
+                    <p class="text-xs text-slate-500">Ammar Dental Surgery (Centre of Smiles)</p>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="modal-booking-form" onsubmit="submitModalBooking(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Your Full Name *</label>
+                    <input type="text" id="modal-name" required placeholder="e.g. Fatima Ali" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">WhatsApp Phone *</label>
+                        <input type="tel" id="modal-phone" required placeholder="e.g. 03009876543" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Select Service *</label>
+                        <select id="modal-service" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                            <option value="General Consultation">General Consultation</option>
+                            <option value="Teeth Scaling & Polishing">Teeth Scaling & Polishing</option>
+                            <option value="Teeth Whitening">Teeth Whitening</option>
+                            <option value="Dental Implants">Dental Implants</option>
+                            <option value="Crowns & Bridges">Crowns & Bridges</option>
+                            <option value="Dentures (CD/RPD)">Dentures (CD/RPD)</option>
+                            <option value="Root Canal Treatment">Root Canal Treatment</option>
+                            <option value="Orthodontic Braces & Aligners">Orthodontic Braces & Aligners</option>
+                            <option value="Aesthetic Procedure">Aesthetic Procedure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Preferred Date *</label>
+                        <input type="date" id="modal-date" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Preferred Time *</label>
+                        <select id="modal-time" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50">
+                            <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
+                            <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
+                            <option value="Evening (5:00 PM - 9:00 PM)">Evening (5:00 PM - 9:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Additional Notes / Symptoms</label>
+                    <textarea id="modal-notes" rows="2" placeholder="Mention any pain or specific requests..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-cyan-500 focus:outline-none text-sm bg-slate-50"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center space-x-2 text-base">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Confirm & Send WhatsApp Message</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300 border border-slate-800">
+        <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-sm">WhatsApp Booking Ready!</h4>
+            <p id="toast-msg" class="text-xs text-slate-300">Redirecting to clinic WhatsApp...</p>
+        </div>
+    </div>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Modal Controls
+        const bookingModal = document.getElementById('booking-modal');
+        const modalContainer = document.getElementById('modal-container');
+
+        function openBookingModal() {
+            bookingModal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContainer.classList.remove('scale-95', 'opacity-0');
+                modalContainer.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeBookingModal() {
+            modalContainer.classList.remove('scale-100', 'opacity-100');
+            modalContainer.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                bookingModal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Close modal on background click
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+
+        // Select service helper
+        function selectServiceAndBook(serviceName) {
+            const selectEl = document.getElementById('modal-service');
+            if (selectEl) {
+                for(let i=0; i<selectEl.options.length; i++) {
+                    if(selectEl.options[i].value === serviceName) {
+                        selectEl.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            openBookingModal();
+        }
+
+        // Toast notification helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+
+        // Quick Booking Form from Hero
+        function handleQuickBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('quick-name').value;
+            const phone = document.getElementById('quick-phone').value;
+            const service = document.getElementById('quick-service').value;
+
+            const clinicWhatsAppNumber = "923001234567"; // Professional clinic WhatsApp format
+            const message = `Hello Ammar Dental Surgery (Centre of Smiles) 🦷,%0A%0AI would like to book an appointment.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A%0APlease confirm my slot. Thank you! "Smile till you still have teeth 😁"`;
+
+            showToast("Opening WhatsApp with your appointment details...");
+            setTimeout(() => {
+                window.open(`https://wa.me/${clinicWhatsAppNumber}?text=${message}`, '_blank');
+            }, 1000);
+        }
+
+        // Modal Booking Form
+        function submitModalBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('modal-name').value;
+            const phone = document.getElementById('modal-phone').value;
+            const service = document.getElementById('modal-service').value;
+            const date = document.getElementById('modal-date').value;
+            const time = document.getElementById('modal-time').value;
+            const notes = document.getElementById('modal-notes').value;
+
+            const clinicWhatsAppNumber = "923001234567";
+            const message = `Hello Ammar Dental Surgery (Centre of Smiles) 🦷,%0A%0ANew Appointment Request:%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(service)}%0A*Date:* ${encodeURIComponent(date)}%0A*Time:* ${encodeURIComponent(time)}%0A*Notes:* ${encodeURIComponent(notes || 'None')}%0A%0A"Smile till you still have teeth 😁"`;
+
+            closeBookingModal();
+            showToast("Redirecting to WhatsApp to send appointment...");
+            setTimeout(() => {
+                window.open(`https://wa.me/${clinicWhatsAppNumber}?text=${message}`, '_blank');
+            }, 1000);
+        }
+
+        // FAQ Toggle
+        function toggleFaq(id) {
+            const body = document.getElementById(`faq-body-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            body.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Set min date for booking to today
+        const todayStr = new Date().toISOString().split('T')[0];
+        const dateInput = document.getElementById('modal-date');
+        if(dateInput) {
+            dateInput.min = todayStr;
+            dateInput.value = todayStr;
+        }
+    </script>
+</body>
+</html>
